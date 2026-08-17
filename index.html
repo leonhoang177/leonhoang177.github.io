@@ -1,3 +1,2175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leon Phu Hoang — Software Engineer</title>
+    <meta
+      name="description"
+      content="Leon Phu Hoang — B.S Computer Science graduate from the University of Tennessee. Software engineer focused on security, full-stack, mobile, and machine learning."
+    />
+    <meta property="og:title" content="Leon Phu Hoang — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer focused on security and real-world impact"
+    />
+    <meta property="og:type" content="website" />
+    <script
+      type="text/javascript"
+      nonce="cbb366b6dadc4ff683e4e528d71"
+      src="//local.adguard.org?ts=1787007253563&amp;type=content-script&amp;dmn=aihub.tennessee.edu&amp;url=https%3A%2F%2Faihub.tennessee.edu%2Fapi%2Finternal%2FuserConversations%2F19cc553c-448e-a4e1-d719-0b978073d039%2Fsegments%2F48f34326-9ca7-42bd-b560-ef8f4be52403%2Fartifacts%2Fbb7cf073-7c3b-431a-820b-cf43beb29ca3&amp;app=com.brave.Browser&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
+    ></script>
+    <script
+      type="text/javascript"
+      nonce="cbb366b6dadc4ff683e4e528d71"
+      src="//local.adguard.org?ts=1787007253563&amp;name=AdGuard%20Extra&amp;type=user-script"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-soft: #f6f7fb;
+        --bg-card: #ffffff;
+        --ink: #0f172a;
+        --ink-soft: #475569;
+        --ink-faint: #94a3b8;
+        --line: #e6e8ef;
+        --accent: #4f46e5;
+        --accent-soft: #eef0ff;
+        --accent-ink: #4338ca;
+        --shadow:
+          0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+        --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.12);
+        --radius: 16px;
+        --maxw: 1080px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      section {
+        padding: 96px 0;
+      }
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-ink);
+        font-weight: 500;
+        margin-bottom: 14px;
+      }
+      h2.section-title {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
+      }
+      .section-sub {
+        color: var(--ink-soft);
+        font-size: 1.02rem;
+        margin-bottom: 44px;
+        max-width: 640px;
+      }
 
-My Portfolio
+      /* NAV */
+      header.nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: saturate(180%) blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .brand {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        font-size: 1.05rem;
+      }
+      .brand span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--ink-soft);
+        font-size: 0.94rem;
+        font-weight: 500;
+        transition: color 0.18s;
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-links a.nav-cta {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--accent), #6366f1);
+        color: #fff; /* now wins the cascade */
+        padding: 9px 18px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+        transition:
+          transform 0.15s,
+          box-shadow 0.2s,
+          filter 0.2s;
+      }
+      .nav-links a.nav-cta:hover {
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
+      }
+      /* subtle one-pass shine every ~6s */
+      .nav-links a.nav-cta::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -60%;
+        width: 32%;
+        height: 100%;
+        background: linear-gradient(
+          100deg,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        transform: skewX(-20deg);
+        animation: ctaShine 6s ease-in-out infinite;
+      }
+      @keyframes ctaShine {
+        0% {
+          left: -60%;
+        }
+        16% {
+          left: 150%;
+        }
+        16.001%,
+        100% {
+          left: 150%;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .nav-links a.nav-cta::after {
+          display: none;
+        }
+      }
+      .nav-cta:hover {
+        filter: brightness(1.06);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
+      }
+      .nav-cta::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -60%;
+        width: 32%;
+        height: 100%;
+        background: linear-gradient(
+          100deg,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        transform: skewX(-20deg);
+        animation: ctaShine 6s ease-in-out infinite;
+      }
+      @keyframes ctaShine {
+        0% {
+          left: -60%;
+        }
+        16% {
+          left: 150%;
+        }
+        16.001%,
+        100% {
+          left: 150%;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .nav-cta::after {
+          display: none;
+        }
+      }
+      .menu-btn {
+        display: none;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        padding: 8px;
+      }
+      .menu-btn span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--ink);
+        margin: 4px 0;
+        border-radius: 2px;
+      }
 
+      /* HERO */
+      .hero {
+        padding: 88px 0 80px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 0.9fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 22px;
+      }
+      .status .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
+      }
+      .hero h1 {
+        font-size: 3.35rem;
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 18px;
+      }
+      .hero h1 .grad {
+        background: linear-gradient(90deg, var(--accent), #7c3aed);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero .lead {
+        font-size: 1.18rem;
+        color: var(--ink-soft);
+        max-width: 540px;
+        margin-bottom: 16px;
+      }
+      .hero .sub {
+        color: var(--ink-soft);
+        max-width: 540px;
+        margin-bottom: 30px;
+      }
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 26px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 12px 22px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.96rem;
+        transition:
+          transform 0.15s,
+          box-shadow 0.2s,
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.28);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 26px rgba(79, 70, 229, 0.36);
+      }
+      .btn-ghost {
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+      .btn-ghost:hover {
+        border-color: var(--ink-faint);
+        transform: translateY(-2px);
+      }
+      .socials {
+        display: flex;
+        gap: 16px;
+      }
+      .socials a {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        color: var(--ink-soft);
+        transition: all 0.18s;
+      }
+      .socials a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .socials svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      .hero-photo {
+        position: relative;
+        display: grid;
+        place-items: center;
+      }
+      .photo-frame {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 6px solid #fff;
+        background: var(--bg-soft);
+      }
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 12%;
+        display: block;
+      }
+      .photo-frame .ph-fallback {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 3.4rem;
+        color: var(--accent-ink);
+        background: linear-gradient(135deg, var(--accent-soft), #f3e8ff);
+      }
+      .photo-blob {
+        position: absolute;
+        inset: -28px;
+        z-index: -1;
+        border-radius: 32px;
+        background: linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.16),
+          rgba(124, 58, 237, 0.1)
+        );
+        filter: blur(8px);
+        transform: rotate(-6deg);
+      }
+      .photo-badge {
+        position: absolute;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 8px 16px;
+        border-radius: 12px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .photo-badge .b-accent {
+        color: var(--accent);
+      }
+
+      /* STAT STRIP */
+      .stats {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-soft);
+      }
+      .stats .wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        padding-top: 34px;
+        padding-bottom: 34px;
+      }
+      .stat b {
+        display: block;
+        font-size: 1.9rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .stat span {
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+      }
+
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 48px;
+      }
+      .about p {
+        color: var(--ink-soft);
+        font-size: 1.06rem;
+        margin-bottom: 18px;
+      }
+      .about p strong {
+        color: var(--ink);
+      }
+      .about-card {
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 26px;
+        height: fit-content;
+      }
+      .about-card h4 {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--ink-faint);
+        margin-bottom: 16px;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .fact {
+        display: flex;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .fact:last-child {
+        border-bottom: 0;
+      }
+      .fact .k {
+        color: var(--ink-soft);
+        min-width: 96px;
+        font-size: 0.92rem;
+      }
+      .fact .v {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      /* EXPERIENCE */
+      .exp {
+        background: var(--bg-soft);
+      }
+      .exp-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 30px;
+        box-shadow: var(--shadow);
+      }
+      .exp-link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .exp-link:hover {
+        transform: translateY(-3px);
+      }
+      .exp-item:has(.exp-link:hover) {
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+      }
+
+      .exp-top {
+        display: block;
+      }
+      .exp-media {
+        margin-top: 26px;
+      }
+
+      /* Logo sits inline next to the title, matching its size */
+      .exp-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 6px;
+      }
+      .title-logo {
+        height: 2.4rem;
+        width: auto;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+      .exp-head h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      /* Landscape photo below the text */
+      .exp-photo {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        margin: 0;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        max-height: 460px;
+      }
+      .exp-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        display: block;
+      }
+      .exp-photo figcaption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 26px 16px 14px;
+        font-size: 0.84rem;
+        line-height: 1.4;
+        color: #fff;
+        background: linear-gradient(
+          to top,
+          rgba(15, 23, 42, 0.85),
+          rgba(15, 23, 42, 0)
+        );
+      }
+
+      /* AURA award: black text, gold box, subtle glare */
+      .award-pill {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin-top: 22px;
+        padding: 13px 18px;
+        border-radius: 12px;
+        color: #1a1206;
+        font-weight: 700;
+        font-size: 0.92rem;
+        line-height: 1.4;
+        background: linear-gradient(135deg, #fff7e0, #fdeec2);
+        border: 1px solid #f0d894;
+        box-shadow: 0 6px 18px rgba(202, 160, 45, 0.2);
+      }
+      .award-pill svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        color: #c99a2e;
+      }
+      .award-text {
+        color: #1a1206;
+      }
+      /* glare sweep: one soft pass every 7s */
+      .award-pill::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -45%;
+        width: 34%;
+        height: 100%;
+        background: linear-gradient(
+          100deg,
+          transparent,
+          rgba(255, 255, 255, 0.58),
+          transparent
+        );
+        transform: skewX(-20deg);
+        animation: awardShine 7s ease-in-out infinite;
+      }
+      @keyframes awardShine {
+        0% {
+          left: -45%;
+        }
+        14% {
+          left: 135%;
+        }
+        14.001%,
+        100% {
+          left: 135%;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .award-pill::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .exp-photo {
+          aspect-ratio: 4 / 3;
+        }
+      }
+
+      /* PROJECTS */
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .proj-grid .featured {
+        grid-column: 1 / -1;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        position: relative;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+        height: 100%;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        border-color: #c9cbf5;
+      }
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        pointer-events: none;
+        box-shadow: inset 0 0 0 2px transparent;
+        transition: box-shadow 0.2s ease;
+      }
+      .card:hover::after {
+        box-shadow: inset 0 0 0 2px var(--accent);
+      }
+      .card-arrow {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        z-index: 3;
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--line);
+        display: grid;
+        place-items: center;
+        color: var(--ink-soft);
+        transition: all 0.2s ease;
+      }
+      .card:hover .card-arrow {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+        transform: translate(2px, -2px);
+      }
+      .card-arrow svg {
+        width: 16px;
+        height: 16px;
+      }
+      .thumb {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: var(--bg-soft);
+        border-bottom: 1px solid var(--line);
+      }
+      .featured .thumb {
+        aspect-ratio: 21/9;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+      .card:hover .thumb img {
+        transform: scale(1.03);
+      }
+      .thumb .ph {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 16px;
+        background: linear-gradient(135deg, var(--accent-soft), #f3e8ff);
+      }
+      .thumb .ph b {
+        display: block;
+        font-size: 1.1rem;
+        color: var(--accent-ink);
+        margin-bottom: 4px;
+      }
+      .thumb .ph span {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+      }
+      .card-body {
+        padding: 22px 24px 24px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .card-kicker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-ink);
+        margin-bottom: 8px;
+      }
+      .card h3 {
+        font-size: 1.22rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: -0.01em;
+      }
+      .featured .card h3,
+      .card.featured h3 {
+        font-size: 1.45rem;
+      }
+      .card p.desc {
+        color: var(--ink-soft);
+        font-size: 0.96rem;
+        margin-bottom: 16px;
+      }
+      .metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .metric {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 5px 11px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .metric .m-accent {
+        color: var(--ink);
+      }
+      .card .tags {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        border-radius: 7px;
+        padding: 4px 10px;
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .skill-cat {
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+      .skill-cat h4 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .skill-cat h4 .ico {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        display: grid;
+        place-items: center;
+      }
+      .skill-cat h4 .ico svg {
+        width: 18px;
+        height: 18px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: var(--ink-soft);
+        transition: all 0.15s;
+      }
+      .chip:hover {
+        border-color: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      /* HONORS */
+      .honors {
+        background: var(--bg-soft);
+      }
+      .honor-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .honor {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        display: flex;
+        gap: 16px;
+        box-shadow: var(--shadow);
+      }
+      .honor .ico {
+        flex: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        display: grid;
+        place-items: center;
+      }
+      .honor .ico svg {
+        width: 22px;
+        height: 22px;
+      }
+      .honor h4 {
+        font-size: 1.02rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .honor .meta {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.76rem;
+        color: var(--accent-ink);
+        margin-bottom: 6px;
+      }
+      .honor p {
+        color: var(--ink-soft);
+        font-size: 0.92rem;
+      }
+
+      /* CONTACT */
+      .contact {
+        background: #0f172a;
+        color: #fff;
+      }
+      .contact .wrap {
+        text-align: center;
+      }
+      .contact .eyebrow {
+        color: #a5b4fc;
+      }
+      .contact h2 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+      }
+      .contact p {
+        color: #cbd5e1;
+        max-width: 520px;
+        margin: 0 auto 32px;
+        font-size: 1.08rem;
+      }
+      .contact-cta {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 40px;
+      }
+      .contact .btn-primary {
+        background: var(--accent);
+      }
+      .contact .btn-ghost {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+      .contact .btn-ghost:hover {
+        border-color: #fff;
+      }
+      .contact-socials {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+      .contact-socials a {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 11px;
+        color: #cbd5e1;
+        transition: all 0.18s;
+      }
+      .contact-socials a:hover {
+        color: #fff;
+        border-color: #fff;
+        transform: translateY(-2px);
+      }
+      .contact-socials svg {
+        width: 20px;
+        height: 20px;
+      }
+      footer {
+        background: #0b1120;
+        color: #64748b;
+        text-align: center;
+        padding: 26px 0;
+        font-size: 0.86rem;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 860px) {
+        section {
+          padding: 72px 0;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 44px;
+          text-align: center;
+        }
+        .hero-cta,
+        .socials {
+          justify-content: center;
+        }
+        .hero .lead,
+        .hero .sub {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero h1 {
+          font-size: 2.6rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .proj-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .honor-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats .wrap {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 22px;
+        }
+        .nav-links {
+          position: absolute;
+          top: 64px;
+          left: 0;
+          right: 0;
+          background: #fff;
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+          gap: 0;
+          padding: 8px 24px;
+          display: none;
+          box-shadow: var(--shadow);
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links a {
+          padding: 12px 0;
+          width: 100%;
+          border-bottom: 1px solid var(--line);
+        }
+        .nav-links .nav-cta {
+          margin: 12px 0;
+          text-align: center;
+          border-bottom: 0;
+        }
+        .menu-btn {
+          display: block;
+        }
+      }
+      @media (max-width: 460px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        .stats .wrap {
+          grid-template-columns: 1fr 1fr;
+        }
+        .contact h2 {
+          font-size: 1.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a href="#top" class="brand">Leon<span>.</span>Hoang</a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#honors">Honors</a>
+          <a href="#contact" class="nav-cta">Get in touch</a>
+        </nav>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="status"
+            ><span class="dot"></span>Open to software engineering roles</span
+          >
+          <h1>
+            Software engineer focused on
+            <span class="grad">security</span> and real-world impact.
+          </h1>
+          <p class="lead">
+            I'm Leon — a Computer Science graduate from the University of
+            Tennessee, with double minors in Cybersecurity and Machine Learning.
+          </p>
+          <p class="sub">
+            From cybersecurity research on software supply chains to full-stack
+            web, mobile, and applied Machine Learning, I build things that are
+            secure, fast, and genuinely useful.
+          </p>
+          <div class="hero-cta">
+            <a
+              href="resume.pdf"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Résumé
+            </a>
+            <a href="#projects" class="btn btn-ghost">View Projects</a>
+          </div>
+          <div class="socials">
+            <a
+              href="https://github.com/leonhoang177"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/leonhoang177"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"
+                />
+              </svg>
+            </a>
+            <a href="mailto:leonhoang177@gmail.com" aria-label="Email">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="photo-frame">
+            <div class="photo-blob"></div>
+            <img
+              src="assets/profile.jpg"
+              alt="Leon Phu Hoang"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'grid';
+              "
+            />
+            <div class="ph-fallback" style="display: none">LH</div>
+          </div>
+          <div class="photo-badge">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#4f46e5"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+            <span
+              ><span class="b-accent">3.92 GPA</span> · BS in Computer
+              Science</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="wrap">
+        <div class="stat"><b>3.92</b><span>GPA / Summa Cum Laude</span></div>
+        <div class="stat"><b>8</b><span>Dean's List semesters</span></div>
+        <div class="stat"><b>7+</b><span>Projects</span></div>
+        <div class="stat">
+          <b>2</b><span>Minors: Cybersecurity &amp; Machine Learning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <p class="eyebrow">01 — About</p>
+        <h2 class="section-title">
+          Building at the intersection of security &amp; software.
+        </h2>
+        <div class="about-grid" style="margin-top: 36px">
+          <div class="about">
+            <p>
+              I'm a Computer Science graduate and engineer who completed a
+              5-year BS/MS at the University of Tennessee's Tickle College of
+              Engineering in May 2026, with double minors in Cybersecurity and
+              Machine Learning.
+            </p>
+            <p>
+              My work spans research and production: I study the robustness of
+              software supply-chain defenses (SBOM) at the MOA Cybersecurity
+              Research Lab, work that earned me a competitive AURA research
+              grant, while shipping full-stack, mobile, and Machine Learning
+              products for startups, labs, and nonprofits.
+            </p>
+            <p>
+              Whether it's a HIPAA-compliant health backend, a phishing
+              detector, or an academic CMS serving hundreds of visitors, I care
+              about the same things: security, performance, and real-world
+              impact.
+            </p>
+          </div>
+          <div class="about-card">
+            <h4>At a glance</h4>
+            <div class="fact">
+              <span class="k">Location</span
+              ><span class="v">Knoxville, TN</span>
+            </div>
+            <div class="fact">
+              <span class="k">Education</span
+              ><span class="v">Bachelor's Degree in Computer Science</span>
+            </div>
+            <div class="fact">
+              <span class="k">Focus</span
+              ><span class="v"
+                >Mobile · Web · Cybersecurity · Machine Learning</span
+              >
+            </div>
+            <div class="fact">
+              <span class="k">Graduated</span><span class="v">May 2026</span>
+            </div>
+            <div class="fact">
+              <span class="k">Email</span
+              ><span class="v">leonhoang177@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="exp" id="experience">
+      <div class="wrap">
+        <p class="eyebrow">02 — Experience</p>
+        <h2 class="section-title">Research</h2>
+        <p class="section-sub">
+          Where I've been putting security and engineering into practice.
+        </p>
+
+        <div class="exp-item">
+          <!-- Whole card links to the LinkedIn post -->
+          <a
+            class="exp-link"
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7460355736032841728/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read the LinkedIn post about this SBOM research"
+          >
+            <div class="exp-top">
+              <!-- Text -->
+              <div class="exp-body">
+                <div class="exp-head">
+                  <img
+                    class="title-logo"
+                    src="assets/utk-logo.webp"
+                    alt="University of Tennessee logo"
+                    onerror="this.style.display = 'none'"
+                  />
+                  <h3>
+                    MOA Cybersecurity Research Lab — University of Tennessee
+                  </h3>
+                </div>
+                <span class="when">Aug 2025 – Present</span>
+                <div class="exp-role">Research Assistant</div>
+                <ul>
+                  <li>
+                    Designed a quantitative methodology to evaluate Microsoft's
+                    SBOM accuracy and robustness in software supply chain
+                    defense, measuring how reliably it surfaces real
+                    dependencies.
+                  </li>
+                  <li>
+                    Built multiple package repositories and manually tracked
+                    their dependency trees to establish a verified ground truth
+                    for benchmarking scanner output.
+                  </li>
+                  <li>
+                    Engineered 3 evasion vectors (parser confusion,
+                    typosquatting, and dependency confusion) to stress test
+                    where SBOM tooling silently fails.
+                  </li>
+                  <li>
+                    Presented the findings at the Arts &amp; Sciences
+                    Undergraduate Research Symposium (ASUReS 2026) to faculty
+                    and fellow researchers.
+                  </li>
+                </ul>
+
+                <!-- Shiny award callout -->
+                <div class="award-pill">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="8" r="6" />
+                    <path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.12" />
+                  </svg>
+                  <span class="award-text"
+                    >Won the AURA Award, a competitive research grant, for this
+                    SBOM research (EUReCA, Summer 2026)</span
+                  >
+                </div>
+              </div>
+
+              <!-- Landscape photo below the text -->
+              <div class="exp-media">
+                <figure class="exp-photo">
+                  <img
+                    src="assets/sbom.jpeg"
+                    alt="Leon Phu Hoang presenting SBOM research at ASUReS 2026"
+                    onerror="this.closest('.exp-photo').style.display = 'none'"
+                  />
+                  <figcaption>
+                    Presenting &ldquo;Evaluating the Practical Efficiency &amp;
+                    Robustness of SBOM Tools&rdquo; at ASUReS 2026
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <p class="eyebrow">03 — Projects</p>
+        <h2 class="section-title">Selected work</h2>
+        <p class="section-sub">
+          A mix of full-stack products, mobile apps, applied Machine Learning,
+          and security tooling. Click any card to explore it.
+        </p>
+
+        <div class="proj-grid">
+          <!-- 1. lou-lab (featured) -->
+          <a
+            class="card featured"
+            href="https://www.lou-lab.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/loulab.png"
+                alt="lou-lab.com academic website"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>lou-lab.com</b><span>assets/loulab.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Full-Stack · Live Site</span>
+              <h3>lou-lab.com — Academic Lab Website</h3>
+              <p class="desc">
+                A public website and administrative studio for a university
+                research lab, streamlining lab info and 50+ publications.
+                Non-technical staff update content independently through a
+                role-based CMS, cutting content-management time dramatically.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">99.9%</span> uptime</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">50+</span> publications</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">200+</span> monthly visitors</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">80%</span> less admin time</span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">Sanity CMS</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Vercel</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2. ZestyCoach -->
+          <a
+            class="card"
+            href="https://www.teknovation.biz/zestycoach-rewrites-the-female-fitness-formula/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/zestycoach.png"
+                alt="ZestyCoach smart health mobile app"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>ZestyCoach</b><span>assets/zestycoach.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Mobile Backend · Startup</span>
+              <h3>ZestyCoach — Smart Health App</h3>
+              <p class="desc">
+                Backend for a Teknovation-featured female-fitness startup.
+                Co-architected a Supabase schema for time-series biometrics, a
+                secure Apple HealthKit sync pipeline, and cryptographic PII
+                hashing for HIPAA-compliant, zero-knowledge storage.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">40%</span> lower latency</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">10+</span> daily biometrics</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">100%</span> PII hashed</span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Supabase</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">HealthKit</span>
+                <span class="tag">Cryptography</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 3. iHear -->
+          <a
+            class="card"
+            href="https://github.com/leonhoang177/iHear"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/ihear.png"
+                alt="iHear campus issue reporting app"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>iHear</b><span>assets/ihear.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Mobile · Team Leader</span>
+              <h3>iHear — Campus Issue Reporting</h3>
+              <p class="desc">
+                A lightweight mobile app that turns "who do I even contact?"
+                into a simple ticket. It connects users, staff, and managers
+                through a real-time workflow — anonymous submissions, up to 5
+                photo attachments, ticket subscriptions, and role-based access.
+                I led concept, design, and database.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">Real-time</span> tracking</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">Role-based</span> access</span
+                >
+                <span class="metric"
+                  >Team of <span class="m-accent">5</span></span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">React Native</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Expo</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4. AquaOptima -->
+          <a
+            class="card"
+            href="https://github.com/leonhoang177/AquaOptima"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/aquaoptima.png"
+                alt="AquaOptima aquaculture swarm optimization"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>AquaOptima</b><span>assets/aquaoptima.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Swarm Intelligence · Simulation</span>
+              <h3>AquaOptima — Aquaculture Optimizer</h3>
+              <p class="desc">
+                Applies swarm intelligence to optimize Largemouth Bass
+                aquaculture. A Particle Swarm Optimization model simulates a
+                fish swarm's lifetime in a 3D pond, while an Evolutionary
+                Algorithm evolves the pond policies that maximize survival,
+                health, and cost savings — with a live 3D visualizer.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">PSO</span> + Evolutionary</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">3D</span> pond visualizer</span
+                >
+                <span class="metric"
+                  >Weighted <span class="m-accent">fitness</span></span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">PSO</span>
+                <span class="tag">Evolutionary Algorithms</span>
+                <span class="tag">Simulation</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 5. Cybersecurity Phishing Simulator -->
+          <a
+            class="card"
+            href="https://github.com/ecruzmango/cybersecurity-phishing-simulator"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/phishing-sim.png"
+                alt="Cybersecurity phishing simulator"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>Phishing Simulator</b><span>assets/phishing-sim.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Security · Awareness Training</span>
+              <h3>Phishing Simulator</h3>
+              <p class="desc">
+                A security-awareness training tool that demonstrates real
+                phishing UI patterns in a closed, local environment. It serves
+                an Amazon-styled dummy login over a self-signed certificate
+                inside a Dev Container to show exactly how credential theft
+                works — strictly ethical, with no real brands or external data
+                transmission.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">Local</span> HTTPS sandbox</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">Ethical</span> training only</span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Dev Containers</span>
+                <span class="tag">TLS / Certs</span>
+                <span class="tag">Security</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 6. Redirection Guard -->
+          <a
+            class="card"
+            href="https://github.com/leonhoang177/redirection-guard"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/redirection-guard.png"
+                alt="Redirection Guard Chrome extension"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>Redirection Guard</b
+                ><span>assets/redirection-guard.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker"
+                >Machine Learning · Chrome Extension</span
+              >
+              <h3>Redirection Guard — Phishing Blocker</h3>
+              <p class="desc">
+                A lightweight, AI-powered Chrome extension that detects and
+                blocks redirect-based phishing <em>during</em> the redirect
+                phase — before the warning comes too late. A two-tier engine
+                checks a blacklist first, then a fine-tuned Gemini model.
+                Research supervised by Dr. Doowon Kim, using PhishTank, Tranco,
+                and VirusTotal.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">100ms</span> latency</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">15,666</span> URL dataset</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">90%</span> accuracy</span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">Gemini</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Chrome Extension</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 7. Love Lines -->
+          <a
+            class="card"
+            href="https://github.com/leonhoang177/love-lines"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="card-arrow"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" /></svg
+            ></span>
+            <div class="thumb">
+              <img
+                src="assets/love-lines.png"
+                alt="Love-Lines reinforcement learning conversation agent"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'grid';
+                "
+              />
+              <div class="ph" style="display: none">
+                <b>Love-Lines</b><span>assets/love-lines.png</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <span class="card-kicker">Reinforcement Learning</span>
+              <h3>Love-Lines — Reinforcement Learning Agent</h3>
+              <p class="desc">
+                A reinforcement-learning dialogue simulator where a "Pursuer"
+                agent learns social logic to raise an affiliation score with a
+                "Target" environment purely through conversation. Trained from
+                50k to 500k timesteps, with custom behavior-tracking tools to
+                interpret how the agent exploits the reward rules.
+              </p>
+              <div class="metrics">
+                <span class="metric"
+                  ><span class="m-accent">291.21</span> best affinity</span
+                >
+                <span class="metric"
+                  ><span class="m-accent">500k</span> timesteps</span
+                >
+                <span class="metric"
+                  >Custom <span class="m-accent">reward</span> env</span
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Reinforcement Learning</span>
+                <span class="tag">Jupyter</span>
+                <span class="tag">NLP</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <p class="eyebrow">04 — Skills</p>
+        <h2 class="section-title">Tools I build with</h2>
+        <p class="section-sub">
+          Grouped by how I actually use them across product, cybersecurity and
+          Machine Learning work.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-cat">
+            <h4>
+              <span class="ico"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" /></svg></span
+              >Programming
+            </h4>
+            <div class="chips">
+              <span class="chip">C</span><span class="chip">C++</span
+              ><span class="chip">Python</span
+              ><span class="chip">JavaScript</span
+              ><span class="chip">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <h4>
+              <span class="ico"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  /></svg></span
+              >Tools &amp; Services
+            </h4>
+            <div class="chips">
+              <span class="chip">React</span
+              ><span class="chip">React Native</span
+              ><span class="chip">Node.js</span><span class="chip">Next.js</span
+              ><span class="chip">MongoDB</span
+              ><span class="chip">Supabase</span
+              ><span class="chip">Google Cloud</span
+              ><span class="chip">Docker</span
+              ><span class="chip">DevContainers</span>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <h4>
+              <span class="ico"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"
+                  /></svg></span
+              >Machine Learning
+            </h4>
+            <div class="chips">
+              <span class="chip">NumPy</span><span class="chip">Pandas</span
+              ><span class="chip">Scikit-Learn</span
+              ><span class="chip">NLP</span><span class="chip">LLMs</span
+              ><span class="chip">Autonomous Agents</span>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <h4>
+              <span class="ico"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  /></svg></span
+              >Cybersecurity
+            </h4>
+            <div class="chips">
+              <span class="chip">Encryption</span><span class="chip">PKI</span
+              ><span class="chip">Certificate Management</span
+              ><span class="chip">WebAuthn</span
+              ><span class="chip">Software Security</span
+              ><span class="chip">SBOM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS -->
+    <section class="honors" id="honors">
+      <div class="wrap">
+        <p class="eyebrow">05 — Honors &amp; Activities</p>
+        <h2 class="section-title">Recognition &amp; involvement</h2>
+        <p class="section-sub">
+          Awards, scholarships, research, and community work.
+        </p>
+        <div class="honor-grid">
+          <div class="honor">
+            <span class="ico"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="6" />
+                <path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1" /></svg
+            ></span>
+            <div>
+              <div class="meta">EUReCA · Summer 2026</div>
+              <h4>AURA Award</h4>
+              <p>
+                Competitive research grant awarded for my SBOM supply-chain
+                research at the MOA Cybersecurity Research Lab.
+              </p>
+            </div>
+          </div>
+          <div class="honor">
+            <span class="ico"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5z" /></svg
+            ></span>
+            <div>
+              <div class="meta">University of Tennessee</div>
+              <h4>Fred M. Roddy Scholarship</h4>
+              <p>
+                Awarded to the top 4 students for academic merit by the UT
+                General Scholarship Committee.
+              </p>
+            </div>
+          </div>
+          <div class="honor">
+            <span class="ico"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 3v18h18" />
+                <path d="m7 14 4-4 3 3 5-6" /></svg
+            ></span>
+            <div>
+              <div class="meta">ASUReS · Mar 2026</div>
+              <h4>Undergraduate Research Presenter</h4>
+              <p>
+                Presented original research on the efficiency and robustness of
+                Microsoft SBOM tools in supply-chain defense.
+              </p>
+            </div>
+          </div>
+          <div class="honor">
+            <span class="ico"
+              ><svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path
+                  d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
+                /></svg
+            ></span>
+            <div>
+              <div class="meta">Hack4Impact · Aug–Dec 2024</div>
+              <h4>Front-end Developer</h4>
+              <p>
+                Built a responsive nonprofit donation platform for Mission of
+                Hope with Next.js, supporting 500+ active users.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="eyebrow">06 — Contact</p>
+        <h2>Let's build something secure.</h2>
+        <p>I'm open to software engineering roles.</p>
+        <div class="contact-cta">
+          <a href="mailto:leonhoang177@gmail.com" class="btn btn-primary">
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-10 6L2 7" />
+            </svg>
+            Email me
+          </a>
+          <a
+            href="resume.pdf"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download Résumé
+          </a>
+        </div>
+        <div class="contact-socials">
+          <a
+            href="https://github.com/leonhoang177"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/leonhoang177"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"
+              />
+            </svg>
+          </a>
+          <a href="mailto:leonhoang177@gmail.com" aria-label="Email">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-10 6L2 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Leon Phu Hoang · Knoxville, TN · Built with
+      plain HTML &amp; CSS
+    </footer>
+
+    <script>
+      // Mobile menu
+      const menuBtn = document.getElementById("menuBtn");
+      const navLinks = document.getElementById("navLinks");
+      menuBtn.addEventListener("click", () =>
+        navLinks.classList.toggle("open"),
+      );
+      navLinks
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => navLinks.classList.remove("open")),
+        );
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

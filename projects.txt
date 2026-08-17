@@ -1,0 +1,11 @@
+1. Academic Website:
+    https://www.lou-lab.com/
+2. ZestyCoach App Start-up (Co-operated):
+    https://www.teknovation.biz/zestycoach-rewrites-the-female-fitness-formula/
+3. Redirection Guard:
+    https://github.com/leonhoang177/redirection-guard
+4. Other personal projects (see their READMEs for more detail and screenshots)
+    https://github.com/leonhoang177/AquaOptima
+    https://github.com/leonhoang177/love-lines
+    https://github.com/leonhoang177/iHear
+    https://github.com/ecruzmango/cybersecurity-phishing-simulator
